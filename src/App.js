@@ -84,7 +84,8 @@ function App() {
       "stateMutability": "view",
       "type": "function"
     }
-  ]; 
+  ];
+  const contractAddr = '0xAD0598F984137189D0ea8369D174ED7b841A0F2f';
   
   const performXfer = async(e) => {
     e.preventDefault();
@@ -93,18 +94,17 @@ function App() {
     var xfer_memo = e.target.elements.msg.value;
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-    const contract = new ethers.Contract(to_addr, contractABI, signer);
+    const contract = new ethers.Contract(contractAddr, contractABI, signer);
+
     var operation = await contract.performTransfer(to_addr, xfer_memo, {value: ethers.utils.parseEther(xfer_amt)});
     await operation.wait();
     console.log(operation);
-    // console.log("bytecode");
-    // console.log(provider.getCode(to_addr));
-    // operation = await contract.count();
-    // await operation.wait();
-    // console.log(operation);
-    // operation = await contract.fetchTransactions();
-    // await operation.wait();
-    // console.log(operation);    
+
+    operation = await contract.fetchTransactions();
+    console.log(operation);    
+
+    operation = await contract.count();
+    console.log(operation);
   }
 
   const connectWallet = async() => {
@@ -114,6 +114,7 @@ function App() {
       const account = accounts[0];
       setWalletAddr(account);
       setConnected(true);
+      console.log(account);
     } else {
       console.log('Wallet is NOT available!');
     }
