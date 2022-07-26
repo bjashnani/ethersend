@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Transactions from "./components/Transactions";
+import Welcome from "./components/Welcome";
 
 function App() {
   
@@ -87,6 +89,9 @@ function App() {
   ];
   const contractAddr = '0xAD0598F984137189D0ea8369D174ED7b841A0F2f';
   
+  const [transactionCount, setTransactionCount] = useState(null);
+  const [transactions, setTransactions] = useState(null);
+  
   const performXfer = async(e) => {
     e.preventDefault();
     var to_addr = e.target.elements.addr.value;
@@ -101,10 +106,12 @@ function App() {
     console.log(operation);
 
     operation = await contract.fetchTransactions();
-    console.log(operation);    
+    console.log(operation);
+    setTransactions(operation);
 
     operation = await contract.count();
     console.log(operation);
+    setTransactionCount(operation);
   }
 
   const connectWallet = async() => {
@@ -124,6 +131,7 @@ function App() {
   return (
   <div className="App">
   <header className="App-header">
+    <Welcome></Welcome>
     <Button onClick={connectWallet}>Connect Wallet</Button>
     <p></p>
     <Greetings connected={connected} walletAddr={walletAddr} />
@@ -144,6 +152,8 @@ function App() {
       </div>
       <Button type="submit">Transfer</Button>
     </Form>
+    <p></p>
+    <Transactions activity={transactions} activityCount={transactionCount}/>
   </header>
   </div>
   );
