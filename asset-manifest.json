@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/ethersend/static/css/main.fa95dbb9.css",
-    "main.js": "/ethersend/static/js/main.44495aa5.js",
+    "main.css": "/ethersend/static/css/main.8e096608.css",
+    "main.js": "/ethersend/static/js/main.91af881b.js",
     "static/js/787.8a27a9a5.chunk.js": "/ethersend/static/js/787.8a27a9a5.chunk.js",
+    "static/media/logo.png": "/ethersend/static/media/logo.c30b21e161fbafe37528.png",
     "index.html": "/ethersend/index.html",
-    "main.fa95dbb9.css.map": "/ethersend/static/css/main.fa95dbb9.css.map",
-    "main.44495aa5.js.map": "/ethersend/static/js/main.44495aa5.js.map",
+    "main.8e096608.css.map": "/ethersend/static/css/main.8e096608.css.map",
+    "main.91af881b.js.map": "/ethersend/static/js/main.91af881b.js.map",
     "787.8a27a9a5.chunk.js.map": "/ethersend/static/js/787.8a27a9a5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa95dbb9.css",
-    "static/js/main.44495aa5.js"
+    "static/css/main.8e096608.css",
+    "static/js/main.91af881b.js"
   ]
 }
