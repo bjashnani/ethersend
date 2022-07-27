@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ethersend/static/css/main.8e096608.css",
-    "main.js": "/ethersend/static/js/main.2ac445be.js",
+    "main.js": "/ethersend/static/js/main.7117a12c.js",
     "static/js/787.8a27a9a5.chunk.js": "/ethersend/static/js/787.8a27a9a5.chunk.js",
     "static/media/logo.png": "/ethersend/static/media/logo.c30b21e161fbafe37528.png",
     "index.html": "/ethersend/index.html",
     "main.8e096608.css.map": "/ethersend/static/css/main.8e096608.css.map",
-    "main.2ac445be.js.map": "/ethersend/static/js/main.2ac445be.js.map",
+    "main.7117a12c.js.map": "/ethersend/static/js/main.7117a12c.js.map",
     "787.8a27a9a5.chunk.js.map": "/ethersend/static/js/787.8a27a9a5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8e096608.css",
-    "static/js/main.2ac445be.js"
+    "static/js/main.7117a12c.js"
   ]
 }
