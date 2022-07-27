@@ -9,11 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Transactions from "./components/Transactions";
 import Welcome from "./components/Welcome";
+import XferStatus from './components/XferStatus';
 
 function App() {
   
   const [walletAddr, setWalletAddr] = useState(null);
   const [connected, setConnected] = useState(null);
+  const [xferStatus, setXferStatus] = useState(null);
   const contractABI = [
     {
       "inputs": [
@@ -88,12 +90,13 @@ function App() {
     }
   ];
   const contractAddr = '0xAD0598F984137189D0ea8369D174ED7b841A0F2f';
-  
+
   const [transactionCount, setTransactionCount] = useState(null);
   const [transactions, setTransactions] = useState(null);
   
   const performXfer = async(e) => {
     e.preventDefault();
+    setXferStatus("Processing...");
     var to_addr = e.target.elements.addr.value;
     var xfer_amt = e.target.elements.amt.value;
     var xfer_memo = e.target.elements.msg.value;
@@ -112,6 +115,7 @@ function App() {
     operation = await contract.count();
     console.log(operation);
     setTransactionCount(operation);
+    setXferStatus("Success!");
   }
 
   const connectWallet = async() => {
@@ -152,6 +156,8 @@ function App() {
       </div>
       <Button type="submit">Transfer</Button>
     </Form>
+    <p></p>
+    <XferStatus status={xferStatus} />
     <p></p>
     <Transactions activity={transactions} activityCount={transactionCount}/>
   </header>
