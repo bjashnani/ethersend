@@ -4,8 +4,8 @@ const Greetings = (props) => {
     console.log(props);
     if (props.connected) {
         return (
-            <Alert key="success" variant="success">
-                Connected - Wallet Address: {props.walletAddr}
+            <Alert className="p-1" key="success" variant="success">
+                Connected as {props.walletAddr}
             </Alert>
         );
     } else if (props.connected != null) {

@@ -1,4 +1,5 @@
 import Transaction from './Transaction';
+import {CardGroup} from "react-bootstrap";
 
 const Transactions = (props) => {
     const activities = props.activity;
@@ -6,13 +7,15 @@ const Transactions = (props) => {
         return (
             <div>
                 <p>Last 4 Transactions</p>
-                {activities.map((activity, index) => {
-                    if (index > props.activityCount - 5)
-                        return <Transaction trans={activity} key={index} />
+                <CardGroup>
+                { activities.slice(0).reverse().map((activity, index) => {
+                    if (index < 4) {
+                            return <Transaction trans={activity} key={index} />;
+                    }
                 })}
+                </CardGroup>
             </div>
         );
-    } else {
     }
 }
 
