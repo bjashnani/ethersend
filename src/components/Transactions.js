@@ -11,7 +11,7 @@ const Transactions = (props) => {
                 { activities.slice(0).reverse().map((activity, index) => {
                     if (index < 4) {
                             return <Transaction trans={activity} key={index} />;
-                    }
+                    } else return null;
                 })}
                 </CardGroup>
             </div>

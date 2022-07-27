@@ -9,7 +9,7 @@ const Transaction = (props) => {
     if (props) {
         const blockTime = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(props.trans.timestamp*1000);
     return (
-        <div className="card border-primary mb-3" key={props.trans.timestamp}>
+        <Card className="border-primary mb-3" key={props.trans.timestamp}>
             <div className="card-header text-danger">{ethers.utils.formatEther(props.trans.amt)} ETH transferred</div>
             <div className="card-body text-primary">
                 {/* <h6 className="card-title">Time: {blockTime}</h6> */}
@@ -18,7 +18,7 @@ const Transaction = (props) => {
                 <p className="card-text">Memo: {props.trans.memo}</p>
                 <p className="card-subtitle">{blockTime}</p>
             </div>
-        </div>
+        </Card>
     );
     } else {
         return (<p>Nothing to print</p>);
